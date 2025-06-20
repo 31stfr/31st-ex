@@ -36,13 +36,15 @@ export default function RootLayout({
             >
                 <div className="flex justify-end items-end p-4 absolute -top-12 -translate-y-1/2 -left-8 w-64 h-64 rotate-45 rounded-br-3xl shadow-xl-r shadow-orange-400 bg-white/85 outline-8 outline-white/30 border border-white z-50">
                     <div className="text-lg text-neutral-500">
-                        <span className="text-neutral-400">31st’ </span>
+                        <span className="text-neutral-400">31st’&nbsp;</span>
                         <span className="font-mono font-bold text-4xl">Ex</span>
                     </div>
                 </div>
-                {/* <div className="w-full flex justify-end items-center px-4 text-sm text-white">
-                    <Link href="https://31st.fr">31st.fr</Link>
-                </div> */}
+                <div className="absolute inset-x-0 h-10 flex justify-end items-center px-4 text-sm text-white">
+                    <Link href="https://31st.fr" className="reverse">
+                        31st.fr
+                    </Link>
+                </div>
                 <div className="flex-1 flex flex-col lg:flex-row gap-12">
                     <Aside className="static top-0 left-0" />
                     <main className="flex-1 flex gap-4 p-8 mt-10 bg-white rounded-tl-3xl outline-8 outline-white/30">

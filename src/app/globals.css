@@ -110,6 +110,19 @@
         @apply font-normal;
         @apply transition-all duration-300;
     }
+
+    a.reverse:link,
+    a.reverse:visited,
+    a.reverse:hover,
+    a.reverse:active {
+        @apply text-white;
+        @apply visited:text-white;
+        @apply hover:text-rose-200;
+        @apply active:text-rose-200;
+        @apply focus-visible:outline-hidden focus-within:outline-hidden;
+        @apply font-normal;
+        @apply transition-all duration-300;
+    }
 }
 
 @layer base {
