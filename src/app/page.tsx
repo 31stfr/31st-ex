@@ -7,14 +7,16 @@ export default function Home() {
     return (
         <div className="flex-1 flex flex-col justify-center items-center gap-8">
             <div className="flex flex-col items-end">
-                <div className="relative font-mono text-neutral-500">
-                    <div className="absolute -left-2 top-2 text-white bg-neutral-500 rounded-3xl p-3 py-0 -rotate-[30deg]">
-                        31st’
+                <div className="flex flex-col text-neutral-500">
+                    <div className="text-5xl lg:text-7xl leading-none bg-linear-to-br from-orange-300 to-rose-400 to-70% bg-clip-text text-transparent">
+                        <div className="font-mono leading-none text-right">31st’</div>
+                        <div className="flex items-end lg:text-9xl font-bold">
+                            Ex
+                            <div className="font-mono font-thin text-2xl lg:text-3xl">
+                                {'{'}amples{'}'}
+                            </div>
+                        </div>
                     </div>
-                    <span className="text-[8rem] leading-none font-bold bg-linear-to-tr from-orange-300 to-rose-400 to-70% bg-clip-text text-transparent">
-                        Ex
-                    </span>
-                    <span className="font-thin text-5xl">amples</span>
                 </div>
             </div>
             <p className="text-center">
