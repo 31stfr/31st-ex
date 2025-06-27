@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
 import Aside from './components/global/Aside';
 import './globals.css';
+import { FaCodePullRequest, FaGithub, FaHandBackFist } from 'react-icons/fa6';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -40,8 +41,16 @@ export default function RootLayout({
                         <span className="font-mono font-bold text-4xl">Ex</span>
                     </div>
                 </div>
-                <div className="absolute inset-x-0 h-10 flex justify-end items-center px-4 text-sm text-white">
-                    <Link href="https://31st.fr" className="reverse">
+                <div className="absolute inset-x-0 h-10 flex justify-end items-center gap-4 px-4">
+                    <Link
+                        href="https://github.com/31stfr/31st-ex"
+                        className="reverse flex items-center gap-1"
+                    >
+                        <FaGithub className="text-lg" />
+                        Github repository
+                    </Link>
+                    <Link href="https://31st.fr" className="reverse flex items-center gap-1">
+                        <FaHandBackFist className="text-base" />
                         31st.fr
                     </Link>
                 </div>

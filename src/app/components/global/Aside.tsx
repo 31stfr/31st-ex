@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Dispatch, ReactNode, SetStateAction, useState } from 'react';
 import { FaCaretRight, FaReact } from 'react-icons/fa6';
 import { IoLogoJavascript } from 'react-icons/io';
+import { SiTailwindcss } from 'react-icons/si';
 import { twMerge } from 'tailwind-merge';
 
 interface AsideProps extends PropClassName {
@@ -95,16 +96,21 @@ const menuItems: MenuItem[] = [
         key: 'react-basics',
         label: 'React basics',
         icon: <FaReact />,
-        items: [
-            { label: 'Client and server side fetch', href: '/react/basics/fetch' },
-            { label: 'Reusable loading component', href: '/react/basics/loading' },
-        ],
+        items: [{ label: 'Client and server side fetch', href: '/react/basics/fetch' }],
     },
     {
         key: 'javascript-basics',
         label: 'Javascript basics',
         icon: <IoLogoJavascript />,
         items: [],
+    },
+    {
+        key: 'tailwindcss',
+        label: 'Tailwind Css',
+        icon: <SiTailwindcss />,
+        items: [
+            { label: 'React and Tailwind CSS simple progress indicator', href: '/twcss/loading' },
+        ],
     },
 ] as const;
 

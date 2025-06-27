@@ -17,12 +17,12 @@ const LoadingSpinner = ({ flavor = 'rose', className = undefined }: LoadingSpinn
     return (
         <div
             className={twMerge(
-                'flex items-center justify-center w-8 h-8 text-white rounded-full border-4 outline-4',
+                'flex items-center justify-center w-8 aspect-square text-lg text-white rounded-full border-4 outline-4',
                 flavorCss[flavor],
                 className
             )}
         >
-            <FaRadiation className="animate-spin-ease text-lg" />
+            <FaRadiation className="animate-spin" />
         </div>
     );
 };

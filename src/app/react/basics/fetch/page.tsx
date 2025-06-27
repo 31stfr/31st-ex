@@ -9,11 +9,11 @@ const ReactBasicsFetchPage = () => {
     return (
         <div className="flex-1 grid grid-cols-2 grid-rows-[auto_auto_1fr] gap-8 place-items-stretch">
             <H4 className="col-span-full">Fetching data with React and Nextjs</H4>
-            <H5 className="flex items-center gap-1">
+            <H5>
                 <FaReact />
                 Client side
             </H5>
-            <H5 className="flex items-center gap-1">
+            <H5>
                 <RiNextjsFill />
                 Server side
             </H5>

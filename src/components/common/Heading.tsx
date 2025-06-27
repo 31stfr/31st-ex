@@ -11,7 +11,7 @@ interface HeadingProps extends PropsWithChildren, PropClassName {
 const Heading = ({ elementType, children, className = undefined }: HeadingProps) => {
     const element = createElement(
         elementType,
-        { className: twMerge('font-mono', className) },
+        { className: twMerge('flex items-center gap-2 font-mono', className) },
         children
     );
 
