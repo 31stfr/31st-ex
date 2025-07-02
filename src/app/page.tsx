@@ -23,6 +23,8 @@ export default function Home() {
                 This project/repository is a collection of code examples related to the{' '}
                 <Link href="https://31st.fr">31st.fr</Link> website's blog.
                 <br />
+                <strong>It's a constant work in progress...</strong>
+                <br />
                 Feel free to clone it and use it for your own projects or just for learning, testing
                 or whatever you want.
             </p>

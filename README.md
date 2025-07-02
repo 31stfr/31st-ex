@@ -1,5 +1,7 @@
 # 31st ex(amples)
 
+![Preview](public/31st_ex.png)
+
 This project/repository is a collection of code examples related to the [31st.fr](https://31st.fr) website's blog. Feel free to clone it and use it for your own projects or just for learning, testing or whatever you want.
 
 ## Usage

@@ -98,12 +98,12 @@ const menuItems: MenuItem[] = [
         icon: <FaReact />,
         items: [{ label: 'Client and server side fetch', href: '/react/basics/fetch' }],
     },
-    {
+    /* {
         key: 'javascript-basics',
         label: 'Javascript basics',
         icon: <IoLogoJavascript />,
         items: [],
-    },
+    }, */
     {
         key: 'tailwindcss',
         label: 'Tailwind Css',
