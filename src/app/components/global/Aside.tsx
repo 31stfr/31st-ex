@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Dispatch, ReactNode, SetStateAction, useState } from 'react';
 import { FaCaretRight, FaReact } from 'react-icons/fa6';
 import { IoLogoJavascript } from 'react-icons/io';
+import { RiNextjsFill } from 'react-icons/ri';
 import { SiTailwindcss } from 'react-icons/si';
 import { twMerge } from 'tailwind-merge';
 
@@ -96,7 +97,13 @@ const menuItems: MenuItem[] = [
         key: 'react-basics',
         label: 'React basics',
         icon: <FaReact />,
-        items: [{ label: 'Client and server side fetch', href: '/react/basics/fetch' }],
+        items: [{ label: 'Client side data fetching', href: '/react/basics/fetch' }],
+    },
+    {
+        key: 'nextjs',
+        label: 'Next.js',
+        icon: <RiNextjsFill />,
+        items: [{ label: 'Server side data fetching', href: '/nextjs/fetch-server' }],
     },
     /* {
         key: 'javascript-basics',
