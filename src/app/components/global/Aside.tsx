@@ -31,7 +31,7 @@ const Aside = ({ className = undefined, menuClassName = undefined }: AsideProps)
                 className={twMerge(
                     'flex-1 p-8 flex flex-col gap-1 pt-24 overflow-y-auto',
                     'bg-white shadow-xl-r shadow-orange-900 outline-8 outline-white/30',
-                    menuClassName
+                    menuClassName,
                 )}
             >
                 <Link href={'/'} className="font-mono text-sm py-2">
@@ -97,7 +97,16 @@ const menuItems: MenuItem[] = [
         key: 'react-basics',
         label: 'React basics',
         icon: <FaReact />,
-        items: [{ label: 'Client side data fetching', href: '/react/basics/fetch' }],
+        items: [
+            {
+                label: 'Client side data fetching with "useEffect" and "useState" (classic)',
+                href: '/react/basics/fetch-classic',
+            },
+            {
+                label: 'Client side data fetching with Suspense and "use" hook',
+                href: '/react/basics/fetch',
+            },
+        ],
     },
     {
         key: 'nextjs',

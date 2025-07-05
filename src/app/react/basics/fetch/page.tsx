@@ -13,11 +13,11 @@ const ReactBasicsFetchPage = () => {
         <div className="flex-1 flex flex-col gap-8">
             <H4>
                 <FaReact />
-                Client side data fetching
+                Client side data fetching with Suspense and "use" hook
             </H4>
             <div>
                 Client side data fetching using standard fetch API, React Suspense and React "use"
-                hook.
+                hook hook.
                 <br />
                 React documentation ressources:
                 <br />
