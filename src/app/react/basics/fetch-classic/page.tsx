@@ -5,8 +5,8 @@ import Loading from '@/components/common/Loading';
 import ResultMessage from '@/components/common/ResultMessage';
 import UserList from '@/components/ressource/user/UserList';
 import { getUserList } from '@/lib/api/user';
+import { toErrorData } from '@/lib/utils';
 import { User } from '@/types/api/User';
-import { log } from 'console';
 import { useEffect, useState } from 'react';
 import { FaReact } from 'react-icons/fa6';
 
@@ -22,25 +22,18 @@ const ReactBasicsFetchClassicPage = () => {
         setLoading(true);
         setError(undefined);
 
-        const fetchUserList = async () => {
-            try {
-                const users = await getUserList();
-
+        getUserList()
+            .then((users) => {
                 setUsers(users);
-            } catch (error: unknown) {
-                if (error instanceof Error) {
-                    setError(error.message);
-                } else if ('string' === typeof error) {
-                    setError(error);
-                } else {
-                    setError('Error while fetching user list...');
-                }
-            } finally {
-                setLoading(false);
-            }
-        };
+            })
+            .catch((error: unknown) => {
+                const { message } = toErrorData(error);
 
-        fetchUserList();
+                setError(message);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     }, []);
 
     if (loading) {

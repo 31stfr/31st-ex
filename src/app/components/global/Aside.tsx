@@ -99,7 +99,7 @@ const menuItems: MenuItem[] = [
         icon: <FaReact />,
         items: [
             {
-                label: 'Client side data fetching with "useEffect" and "useState" (classic)',
+                label: 'Client side data fetching: Classic pattern',
                 href: '/react/basics/fetch-classic',
             },
             {

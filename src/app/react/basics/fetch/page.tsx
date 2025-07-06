@@ -1,11 +1,14 @@
 import { H4 } from '@/components/common/Heading';
 import FetchClient from '@/components/ex/fetch/FetchClient';
 import { getUserList } from '@/lib/api/user';
+import { toErrorData } from '@/lib/utils';
 import Link from 'next/link';
 import { FaReact } from 'react-icons/fa6';
 
-const getUserListPromise = getUserList().catch((_error) => {
-    return 'Error while fetching user list';
+const getUserListPromise = getUserList().catch((error) => {
+    const { message } = toErrorData(error);
+
+    return message;
 });
 
 const ReactBasicsFetchPage = () => {
