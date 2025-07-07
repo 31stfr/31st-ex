@@ -1,10 +1,13 @@
 import { H4 } from '@/components/common/Heading';
+import Loading from '@/components/common/Loading';
 import FetchClient from '@/components/ex/fetch/FetchClient';
 import { getUserList } from '@/lib/api/user';
 import { toErrorData } from '@/lib/utils';
 import Link from 'next/link';
+import { Suspense } from 'react';
 import { FaReact } from 'react-icons/fa6';
 
+// No "await" here to ensure the Promise is resolved client side
 const getUserListPromise = getUserList().catch((error) => {
     const { message } = toErrorData(error);
 
@@ -20,7 +23,7 @@ const ReactBasicsFetchPage = () => {
             </H4>
             <div>
                 Client side data fetching using standard fetch API, React Suspense and React "use"
-                hook hook.
+                hook.
                 <br />
                 React documentation ressources:
                 <br />
@@ -37,7 +40,9 @@ const ReactBasicsFetchPage = () => {
                     </li>
                 </ul>
             </div>
-            <FetchClient getUserListPromise={getUserListPromise} />
+            <Suspense fallback={<Loading />}>
+                <FetchClient getUserListPromise={getUserListPromise} />
+            </Suspense>
         </div>
     );
 };

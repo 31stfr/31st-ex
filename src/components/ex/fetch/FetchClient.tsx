@@ -1,16 +1,15 @@
 'use client';
 
-import Loading from '@/components/common/Loading';
 import ResultMessage from '@/components/common/ResultMessage';
 import UserList from '@/components/ressource/user/UserList';
 import { User } from '@/types/api/User';
-import { Suspense, use } from 'react';
+import { use } from 'react';
 
-interface FetchClientWithSuspenseProps {
+interface FetchClienProps {
     getUserListPromise: Promise<User[] | string>;
 }
 
-const FetchClientWithSuspense = ({ getUserListPromise }: FetchClientWithSuspenseProps) => {
+const FetchClient = ({ getUserListPromise }: FetchClienProps) => {
     const result = use(getUserListPromise);
 
     // Error handling
@@ -19,14 +18,6 @@ const FetchClientWithSuspense = ({ getUserListPromise }: FetchClientWithSuspense
     }
 
     return <UserList users={result} />;
-};
-
-const FetchClient = (props: FetchClientWithSuspenseProps) => {
-    return (
-        <Suspense fallback={<Loading />}>
-            <FetchClientWithSuspense {...props} />
-        </Suspense>
-    );
 };
 
 export default FetchClient;
