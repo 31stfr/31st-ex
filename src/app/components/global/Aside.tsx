@@ -94,10 +94,23 @@ const AsidePopoverContent = ({ menuItem: { items, icon }, setOpen }: AsidePopove
 
 const menuItems: MenuItem[] = [
     {
-        key: 'react-basics',
-        label: 'React basics',
+        key: 'react',
+        label: 'React',
         icon: <FaReact />,
-        items: [{ label: 'Client side data fetching', href: '/react/basics/fetch' }],
+        items: [
+            {
+                label: 'Client side data fetching: Classic pattern',
+                href: '/react/fetch-classic',
+            },
+            {
+                label: 'Client side data fetching with Suspense and "use" hook',
+                href: '/react/fetch',
+            },
+            {
+                label: 'Search results highlighter and "useTransition" hook',
+                href: '/react/highlighter',
+            },
+        ],
     },
     {
         key: 'nextjs',
@@ -106,8 +119,8 @@ const menuItems: MenuItem[] = [
         items: [{ label: 'Server side data fetching', href: '/nextjs/fetch-server' }],
     },
     /* {
-        key: 'javascript-basics',
-        label: 'Javascript basics',
+        key: 'javascript',
+        label: 'Javascript',
         icon: <IoLogoJavascript />,
         items: [],
     }, */
