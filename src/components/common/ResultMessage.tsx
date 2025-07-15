@@ -1,11 +1,11 @@
-import { MessageType, PropClassName } from '@/types/typesGlobal';
+import { MessageType, PropClassName, ReactElementString } from '@/types/typesGlobal';
 import { ReactElement } from 'react';
 import { FaCheck, FaExclamation, FaInfo, FaXmark } from 'react-icons/fa6';
 import { twMerge } from 'tailwind-merge';
 
 interface ResultMessageProps extends PropClassName {
     type: MessageType;
-    content: ReactElement | string;
+    content: ReactElementString;
 }
 
 type TypeData = {

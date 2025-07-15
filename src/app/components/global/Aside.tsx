@@ -31,7 +31,7 @@ const Aside = ({ className = undefined, menuClassName = undefined }: AsideProps)
                 className={twMerge(
                     'flex-1 p-8 flex flex-col gap-1 pt-24 overflow-y-auto',
                     'bg-white shadow-xl-r shadow-orange-900 outline-8 outline-white/30',
-                    menuClassName,
+                    menuClassName
                 )}
             >
                 <Link href={'/'} className="font-mono text-sm py-2">
@@ -94,17 +94,21 @@ const AsidePopoverContent = ({ menuItem: { items, icon }, setOpen }: AsidePopove
 
 const menuItems: MenuItem[] = [
     {
-        key: 'react-basics',
-        label: 'React basics',
+        key: 'react',
+        label: 'React',
         icon: <FaReact />,
         items: [
             {
                 label: 'Client side data fetching: Classic pattern',
-                href: '/react/basics/fetch-classic',
+                href: '/react/fetch-classic',
             },
             {
                 label: 'Client side data fetching with Suspense and "use" hook',
-                href: '/react/basics/fetch',
+                href: '/react/fetch',
+            },
+            {
+                label: 'Search results highlighter and "useTransition" hook',
+                href: '/react/highlighter',
             },
         ],
     },
@@ -115,8 +119,8 @@ const menuItems: MenuItem[] = [
         items: [{ label: 'Server side data fetching', href: '/nextjs/fetch-server' }],
     },
     /* {
-        key: 'javascript-basics',
-        label: 'Javascript basics',
+        key: 'javascript',
+        label: 'Javascript',
         icon: <IoLogoJavascript />,
         items: [],
     }, */
