@@ -110,6 +110,10 @@ const menuItems: MenuItem[] = [
                 label: 'Search results highlighter and "useTransition" hook',
                 href: '/react/highlighter',
             },
+            {
+                label: 'Efficient context',
+                href: '/react/efficient-context',
+            },
         ],
     },
     {
