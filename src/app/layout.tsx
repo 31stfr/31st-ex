@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import Link from 'next/link';
-import { FaGithub, FaHandBackFist } from 'react-icons/fa6';
+import { FaGithub, FaRocket } from 'react-icons/fa6';
 import { twMerge } from 'tailwind-merge';
 import Aside from './components/global/Aside';
 import './globals.css';
@@ -50,7 +50,7 @@ export default function RootLayout({
                         Github repository
                     </Link>
                     <Link href="https://31st.fr" className="reverse flex items-center gap-1">
-                        <FaHandBackFist className="text-base" />
+                        <FaRocket className="text-base" />
                         31st.fr
                     </Link>
                 </div>
