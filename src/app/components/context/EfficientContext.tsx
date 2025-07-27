@@ -18,9 +18,9 @@ const EfficientContextProvider = ({ children }: EfficientContextProviderProps) =
     const [counter02, setCounter02] = useState(0);
 
     return (
-        <EfficientContext.Provider value={{ counter01, counter02, setCounter01, setCounter02 }}>
+        <EfficientContext value={{ counter01, counter02, setCounter01, setCounter02 }}>
             {children}
-        </EfficientContext.Provider>
+        </EfficientContext>
     );
 };
 
