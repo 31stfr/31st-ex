@@ -12,7 +12,7 @@ interface StandardContextData {
 }
 
 // The context created with React.createContext
-export const StandardContext = createContext<StandardContextData>({} as StandardContextData);
+export const StandardContext = createContext<StandardContextData | null>(null);
 
 // Context provider
 const StandardContextProvider = ({ children }: StandardContextProviderProps) => {
