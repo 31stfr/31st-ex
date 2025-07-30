@@ -11,7 +11,7 @@ const ReactEfficientContextPage = () => {
                 Efficient context
             </H4>
             <div>
-                How to efficiently consume context in React with{' '}
+                How to efficiently consume React context with{' '}
                 <Link href="https://www.npmjs.com/package/@fluentui/react-context-selector">
                     @fluentui/react-context-selector
                 </Link>

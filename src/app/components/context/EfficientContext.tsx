@@ -17,10 +17,11 @@ const EfficientContextProvider = ({ children }: EfficientContextProviderProps) =
     const [counter01, setCounter01] = useState(0);
     const [counter02, setCounter02] = useState(0);
 
+    // With @fluentui/react-context-selector ".Provider" syntax is required
     return (
-        <EfficientContext value={{ counter01, counter02, setCounter01, setCounter02 }}>
+        <EfficientContext.Provider value={{ counter01, counter02, setCounter01, setCounter02 }}>
             {children}
-        </EfficientContext>
+        </EfficientContext.Provider>
     );
 };
 
