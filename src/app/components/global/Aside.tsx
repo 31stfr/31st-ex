@@ -114,6 +114,10 @@ const menuItems: MenuItem[] = [
                 label: 'Efficient context',
                 href: '/react/efficient-context',
             },
+            {
+                label: 'Compound components',
+                href: '/react/compound-components',
+            },
         ],
     },
     {
