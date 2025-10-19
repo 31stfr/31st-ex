@@ -118,6 +118,10 @@ const menuItems: MenuItem[] = [
                 label: 'Compound components',
                 href: '/react/compound-components',
             },
+            {
+                label: 'Tanstack useQuery',
+                href: '/react/usequery',
+            },
         ],
     },
     {

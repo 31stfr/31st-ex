@@ -1,5 +1,5 @@
 import { User } from '@/types/api/User';
-import UserDisplay from './User';
+import UserDisplay from './UserDisplay';
 
 interface UserListProps {
     users: User[];
@@ -11,7 +11,17 @@ const UserList = ({ users }: UserListProps) => {
             {users.map((user) => {
                 const key = `user-${user.id}`;
 
-                return <UserDisplay key={key} user={user} />;
+                return (
+                    <UserDisplay key={key} user={user}>
+                        <UserDisplay.UserName className="text-base" />
+                        <div className="flex items-center gap-1">
+                            <UserDisplay.Name />
+                            -
+                            <UserDisplay.Email className="text-sm" />
+                        </div>
+                        <UserDisplay.Address />
+                    </UserDisplay>
+                );
             })}
         </div>
     );
