@@ -1,20 +1,10 @@
+import { geistMono, geistSans } from '@/lib/fonts';
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import Link from 'next/link';
 import { FaGithub, FaRocket } from 'react-icons/fa6';
 import { twMerge } from 'tailwind-merge';
 import Aside from './components/global/Aside';
 import './globals.css';
-
-const geistSans = Geist({
-    variable: '--font-geist-sans',
-    subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-    variable: '--font-geist-mono',
-    subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
     title: '31st-ex',
@@ -32,7 +22,7 @@ export default function RootLayout({
                 className={twMerge(
                     `${geistSans.variable} ${geistMono.variable} antialiased relative`,
                     'bg-linear-to-br from-orange-300 to-rose-400 to-70%',
-                    'flex'
+                    'flex',
                 )}
             >
                 <div className="flex justify-end items-end p-4 fixed -top-12 -translate-y-1/2 -left-8 w-64 h-64 rotate-45 rounded-br-3xl shadow-xl-r shadow-orange-400 bg-white/85 outline-8 outline-white/30 border border-white z-50">

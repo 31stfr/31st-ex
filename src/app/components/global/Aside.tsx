@@ -31,7 +31,7 @@ const Aside = ({ className = undefined, menuClassName = undefined }: AsideProps)
                 className={twMerge(
                     'flex-1 p-8 flex flex-col gap-1 pt-24 overflow-y-auto',
                     'bg-white shadow-xl-r shadow-orange-900 outline-8 outline-white/30',
-                    menuClassName
+                    menuClassName,
                 )}
             >
                 <Link href={'/'} className="font-mono text-sm py-2">
@@ -122,6 +122,10 @@ const menuItems: MenuItem[] = [
                 label: 'Tanstack useQuery',
                 href: '/react/usequery',
             },
+            {
+                label: 'Zustand shop store',
+                href: '/react/zustand-shop',
+            },
         ],
     },
     {
@@ -130,12 +134,6 @@ const menuItems: MenuItem[] = [
         icon: <RiNextjsFill />,
         items: [{ label: 'Server side data fetching', href: '/nextjs/fetch-server' }],
     },
-    /* {
-        key: 'javascript',
-        label: 'Javascript',
-        icon: <IoLogoJavascript />,
-        items: [],
-    }, */
     {
         key: 'tailwindcss',
         label: 'Tailwind Css',
