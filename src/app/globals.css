@@ -137,3 +137,15 @@
         @apply bg-background text-foreground;
     }
 }
+
+/* Chrome, Safari, Edge, Opera */
+input.input-number-wo-arrows::-webkit-outer-spin-button,
+input.input-number-wo-arrows::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input.input-number-wo-arrows[type='number'] {
+    appearance: textfield;
+}

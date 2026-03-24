@@ -1,11 +1,29 @@
+// ----------------------------------------------------------- Store
+export type ProductEntries = Record<
+    number, // Product id
+    {
+        price: number;
+        stock: number;
+    }
+>;
+
+export type CartEntries = Record<
+    number, // Product id
+    {
+        quantity: number;
+        total: number;
+    }
+>;
+
+// ----------------------------------------------------------- API
 export type ProductResponse = {
-    products: Product[];
+    products: ApiProduct[];
     total: number;
     skip: number;
     limit: number;
 };
 
-export type Product = {
+export type ApiProduct = {
     id: number;
     title: string;
     description: string;
@@ -17,25 +35,25 @@ export type Product = {
     tags: string[];
     sku: string;
     weight: number;
-    dimensions: Dimensions;
+    dimensions: ApiDimensions;
     warrantyInformation: string;
     shippingInformation: string;
     availabilityStatus: string;
-    reviews: Review[];
+    reviews: ApiReview[];
     returnPolicy: string;
     minimumOrderQuantity: number;
-    meta: Meta;
+    meta: ApiMeta;
     images: string[];
     thumbnail: string;
 };
 
-export type Dimensions = {
+type ApiDimensions = {
     width: number;
     height: number;
     depth: number;
 };
 
-export type Review = {
+type ApiReview = {
     rating: number;
     comment: string;
     date: string;
@@ -43,7 +61,7 @@ export type Review = {
     reviewerEmail: string;
 };
 
-export type Meta = {
+type ApiMeta = {
     createdAt: string;
     updatedAt: string;
     barcode: string;

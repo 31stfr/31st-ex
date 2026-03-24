@@ -1,15 +1,15 @@
 'use client';
 
 import { H6 } from '@/components/common/Heading';
-import { Product } from '@/types/api/Product';
+import { ApiProduct } from '@/types/api/Product';
 import { PropClassName } from '@/types/typesGlobal';
 import Image from 'next/image';
 import { PropsWithChildren, createContext, use } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-type ProductCardProps = { product: Product } & PropsWithChildren & PropClassName;
+type ProductCardProps = { product: ApiProduct } & PropsWithChildren & PropClassName;
 
-type ProductCardData = { product: Product };
+type ProductCardData = { product: ApiProduct };
 
 const ProductCardContext = createContext<ProductCardData | undefined>(undefined);
 
