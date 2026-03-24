@@ -53,18 +53,18 @@ const Stock = ({ className, productId }: StockProps) => {
     const cartEntry = useShopStore((s) => s.cartEntries[productId]);
     const productEntry = useShopStore((s) => s.productEntries[productId]);
 
-    const stock = productEntry.stock - (cartEntry?.quantity ?? 0);
+    const stock = (productEntry?.stock ?? 0) - (cartEntry?.quantity ?? 0);
 
     return (
         <div className={twMerge('flex justify-between', className)}>
-            In stock: <span>{stock}</span>
+            In stock: <span className="font-mono">{stock}</span>
         </div>
     );
 };
 
 const QuantityInput = ({ className, product }: QuantityInputProps) => {
-    const addToCart = useShopStore((s) => s.addToCart);
-    const removeFromCart = useShopStore((s) => s.removeFromCart);
+    const increaseQuantity = useShopStore((s) => s.increaseQuantity);
+    const decreaseQuantity = useShopStore((s) => s.decreaseQuantity);
     const productEntry = useShopStore((s) => s.cartEntries[product.id]);
 
     return (
@@ -85,7 +85,7 @@ const QuantityInput = ({ className, product }: QuantityInputProps) => {
                     'px-0 py-0! h-6',
                 )}
                 variant="orange"
-                onClick={() => addToCart(product.id)}
+                onClick={() => increaseQuantity(product.id)}
             >
                 +
             </Button>
@@ -95,7 +95,7 @@ const QuantityInput = ({ className, product }: QuantityInputProps) => {
                     'px-0 py-0! h-6',
                 )}
                 variant="orange"
-                onClick={() => removeFromCart(product.id)}
+                onClick={() => decreaseQuantity(product.id)}
             >
                 -
             </Button>

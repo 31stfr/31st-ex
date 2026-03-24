@@ -8,10 +8,11 @@ export type ShopStore = {
     cartEntries: CartEntries;
     productEntries: ProductEntries;
     // Methods
-    addToCart: (productId: number) => void;
+    increaseQuantity: (productId: number) => void;
     getCartTotal: () => number;
-    removeFromCart: (productId: number) => void;
+    decreaseQuantity: (productId: number) => void;
     setProductEntries: (entries: ProductEntries) => void;
+    removeFromCart: (productId: number) => void;
 };
 
 const round2 = (value: number) => {
@@ -32,7 +33,7 @@ export const createShopStore = () => {
                     });
                 },
 
-                addToCart: (productId) => {
+                increaseQuantity: (productId) => {
                     const productEntry = get().productEntries[productId];
                     if (!productEntry) {
                         return;
@@ -56,7 +57,7 @@ export const createShopStore = () => {
                     });
                 },
 
-                removeFromCart: (productId) => {
+                decreaseQuantity: (productId) => {
                     const productEntry = get().productEntries[productId];
                     const cartEntry = get().cartEntries[productId];
                     if (!productEntry || !cartEntry) {
@@ -80,6 +81,13 @@ export const createShopStore = () => {
                             },
                         },
                     });
+                },
+
+                removeFromCart: (productId) => {
+                    const cartEntriesUpdated = get().cartEntries;
+                    delete cartEntriesUpdated[productId];
+
+                    set({ cartEntries: cartEntriesUpdated });
                 },
 
                 getCartTotal: () => {

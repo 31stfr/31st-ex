@@ -1,52 +1,38 @@
 'use client';
 
-import { H6 } from '@/components/common/Heading';
-import ProductCard from '@/components/ex/compound-components/ProductCard';
 import useShopStore from '@/hooks/store/useShopStore';
 import { ApiProduct } from '@/types/api/Product';
+import { PropClassName } from '@/types/typesGlobal';
+import { FaCartShopping } from 'react-icons/fa6';
+import { twMerge } from 'tailwind-merge';
+import CartContent from './CartContent';
 
 type CartProps = {
     products: ApiProduct[];
-};
+} & PropClassName;
 
 type CartTotalProps = {
     total: number;
 };
 
-const Cart = ({ products }: CartProps) => {
+const Cart = ({ className, products }: CartProps) => {
     const cartEntries = useShopStore((s) => s.cartEntries);
     const total = useShopStore((s) => s.getCartTotal());
 
+    const cartItemsCount = Object.keys(cartEntries).length;
+
     return (
-        <div className="flex flex-col gap-4">
-            <H6>Your Cart</H6>
+        <div className={twMerge('flex flex-col gap-4', className)}>
             <CartTotal total={total} />
             <div className="flex flex-col gap-4">
-                {Object.entries(cartEntries).map(([productId, entry]) => {
-                    const id = Number(productId);
-                    const product = products.find((p) => p.id === id);
-                    if (!product) {
-                        return undefined;
-                    }
-
-                    const key = `product-${product.id}`;
-
-                    return (
-                        <ProductCard key={key} product={product}>
-                            <ProductCard.Title />
-                            <ProductCard.Thumb className="size-12" />
-                            <div className="grid grid-cols-3 divide-x place-items-stretch text-sm font-mono">
-                                <ProductCard.Price className="bg-white p-1 rounded-l" />
-                                <div className="flex justify-end bg-white p-1 px-1.5">
-                                    x{entry.quantity}
-                                </div>
-                                <div className="flex justify-end bg-white p-1 px-1.5 rounded-r">
-                                    {entry.total.toFixed(2)}€
-                                </div>
-                            </div>
-                        </ProductCard>
-                    );
-                })}
+                {0 === cartItemsCount ? (
+                    <div className="flex flex-col justify-center items-center gap-4 p-8 bg-neutral-50 text-neutral-500 border rounded-xl">
+                        <FaCartShopping className="text-neutral-300 text-2xl" />
+                        Cart is empty
+                    </div>
+                ) : (
+                    <CartContent products={products} />
+                )}
             </div>
             <CartTotal total={total} />
         </div>
@@ -56,7 +42,7 @@ const Cart = ({ products }: CartProps) => {
 const CartTotal = ({ total }: CartTotalProps) => {
     return (
         <div className="flex justify-between gap-2">
-            Total:
+            <span className="text-neutral-500">Total:</span>
             <span className="font-mono">
                 {total.toFixed(2)} <span>€</span>
             </span>
