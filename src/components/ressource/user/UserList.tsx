@@ -1,15 +1,17 @@
 'use client';
 
 import { User } from '@/types/api/User';
+import { PropClassName } from '@/types/typesGlobal';
+import { twMerge } from 'tailwind-merge';
 import UserDisplay from './UserDisplay';
 
-interface UserListProps {
+type UserListProps = {
     users: User[];
-}
+} & PropClassName;
 
-const UserList = ({ users }: UserListProps) => {
+const UserList = ({ className, users }: UserListProps) => {
     return (
-        <div className="flex flex-col gap-4">
+        <div className={twMerge('flex flex-col gap-4', className)}>
             {users.map((user) => {
                 const key = `user-${user.id}`;
 

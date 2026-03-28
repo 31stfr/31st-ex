@@ -5,20 +5,21 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { highlightSearchResults } from '@/lib/utils';
 import { Todo } from '@/types/api/Todo';
-import React, { useEffect, useState, useTransition } from 'react';
+import { PropClassName } from '@/types/typesGlobal';
+import React, { useState, useTransition } from 'react';
 import { FaXmark } from 'react-icons/fa6';
 import { twMerge } from 'tailwind-merge';
 
-interface TodoListRenderProps {
+type TodoListRenderProps = {
     todoList: Todo[];
-}
+} & PropClassName;
 
 // Search string cleaner
 const getCleanedQuery = (query: string) => {
     return query.replace(/\s+/g, ' ').trim();
 };
 
-const TodoListRender = ({ todoList }: TodoListRenderProps) => {
+const TodoListRender = ({ className, todoList }: TodoListRenderProps) => {
     const [isPending, startTransition] = useTransition();
     const [todoListFiltered, setTodoListFiltered] = useState<Todo[]>(todoList);
     const [inputValue, setInputValue] = useState('');
@@ -76,7 +77,12 @@ const TodoListRender = ({ todoList }: TodoListRenderProps) => {
     };
 
     return (
-        <div className="flex-1 flex flex-col items-center gap-4">
+        <div
+            className={twMerge(
+                'flex-1 min-h-0 grid grid-rows-[auto_auto_1fr] place-items-center gap-4 overflow-y-hidden',
+                className,
+            )}
+        >
             <div className="flex">
                 <Input
                     className="lg:w-96 rounded-r-none"
@@ -90,7 +96,7 @@ const TodoListRender = ({ todoList }: TodoListRenderProps) => {
                 <Button
                     className={twMerge(
                         'rounded-none border-y border-input',
-                        inputFocus && 'border-orange-300 bg-orange-50'
+                        inputFocus && 'border-orange-300 bg-orange-50',
                     )}
                     variant="secondary"
                     onClick={() => onClickHandler()}
@@ -99,17 +105,17 @@ const TodoListRender = ({ todoList }: TodoListRenderProps) => {
                 </Button>
                 <div
                     className={twMerge(
-                        'flex items-center justify-center rounded-r-md bg-neutral-100 h-full w-12',
+                        'flex items-center justify-center rounded-r-md bg-neutral-100 min-h-full w-12',
                         'border border-input',
                         'shadow-xs',
-                        inputFocus && 'border-orange-300 bg-orange-50'
+                        inputFocus && 'border-orange-300 bg-orange-50',
                     )}
                 >
                     {isPending && <LoadingSpinner className="w-4 text-xs border-0 outline-0" />}
                 </div>
             </div>
             <div className="text-xs text-neutral-400">{getResultsMessage(inputValue)}</div>
-            <div className="grid grid-cols-[auto_1fr] gap-1 min-w-[40%] items-center">
+            <div className="h-full grid grid-cols-[auto_1fr] gap-1 px-4 min-w-[40%] items-center overflow-y-auto">
                 {todoListFiltered.map((todo, index) => {
                     const key = `todo-${todo.id}`;
 

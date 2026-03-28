@@ -3,13 +3,14 @@
 import ResultMessage from '@/components/common/ResultMessage';
 import UserList from '@/components/ressource/user/UserList';
 import { User } from '@/types/api/User';
+import { PropClassName } from '@/types/typesGlobal';
 import { use } from 'react';
 
-interface FetchClienProps {
+type FetchClienProps = {
     getUserListPromise: Promise<User[] | string>;
-}
+} & PropClassName;
 
-const FetchClient = ({ getUserListPromise }: FetchClienProps) => {
+const FetchClient = ({ className, getUserListPromise }: FetchClienProps) => {
     const result = use(getUserListPromise);
 
     // Error handling
@@ -17,7 +18,7 @@ const FetchClient = ({ getUserListPromise }: FetchClienProps) => {
         return <ResultMessage type={'error'} content={result} className="justify-center" />;
     }
 
-    return <UserList users={result} />;
+    return <UserList users={result} className={className} />;
 };
 
 export default FetchClient;

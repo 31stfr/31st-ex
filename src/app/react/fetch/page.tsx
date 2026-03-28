@@ -16,7 +16,7 @@ const getUserListPromise = getUserList().catch((error) => {
 
 const ReactBasicsFetchPage = () => {
     return (
-        <div className="flex-1 flex flex-col gap-8">
+        <div className="flex-1 h-full grid grid-rows-[auto_auto_1fr] gap-8 overflow-y-hidden">
             <H4>
                 <FaReact />
                 Client side data fetching with Suspense and "use" hook
@@ -41,7 +41,7 @@ const ReactBasicsFetchPage = () => {
                 </ul>
             </div>
             <Suspense fallback={<Loading />}>
-                <FetchClient getUserListPromise={getUserListPromise} />
+                <FetchClient getUserListPromise={getUserListPromise} className="overflow-y-auto" />
             </Suspense>
         </div>
     );

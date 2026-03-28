@@ -45,12 +45,12 @@ const ReactBasicsFetchClassicPage = () => {
     }
 
     return (
-        <div className="flex-1 flex flex-col gap-8">
+        <div className="flex-1 h-full grid grid-rows-[auto_1fr] gap-8 overflow-y-hidden">
             <H4>
                 <FaReact />
                 Client side data fetching with "useEffect" and "useState" (classic pattern)
             </H4>
-            <UserList users={users} />
+            <UserList users={users} className="overflow-y-auto" />
         </div>
     );
 };

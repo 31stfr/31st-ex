@@ -2,14 +2,15 @@
 
 import ResultMessage from '@/components/common/ResultMessage';
 import { Todo } from '@/types/api/Todo';
+import { PropClassName } from '@/types/typesGlobal';
 import { use } from 'react';
 import TodoListRender from './TodoListRender';
 
-interface TodoListProps {
+type TodoListProps = {
     getTodoListPromise: Promise<Todo[] | string>;
-}
+} & PropClassName;
 
-const TodoList = ({ getTodoListPromise }: TodoListProps) => {
+const TodoList = ({ className, getTodoListPromise }: TodoListProps) => {
     const result = use(getTodoListPromise);
 
     // Error handling
@@ -17,7 +18,7 @@ const TodoList = ({ getTodoListPromise }: TodoListProps) => {
         return <ResultMessage type={'error'} content={result} className="justify-center" />;
     }
 
-    return <TodoListRender todoList={result} />;
+    return <TodoListRender todoList={result} className={className} />;
 };
 
 export default TodoList;

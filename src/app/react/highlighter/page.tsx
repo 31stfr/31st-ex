@@ -16,7 +16,7 @@ const getTodoListPromise = getTodoList().catch((error) => {
 
 const ReactHighlighterPage = () => {
     return (
-        <div className="flex-1 flex flex-col gap-8">
+        <div className="h-full grid grid-rows-[auto_auto_1fr] gap-8 overflow-y-hidden">
             <H4>
                 <FaReact />
                 Search results highlighter and "useTransition" hook

@@ -26,7 +26,7 @@ const Aside = ({ className = undefined, menuClassName = undefined }: AsideProps)
     const [open, setOpen] = useState<string | undefined>(undefined);
 
     return (
-        <aside className={twMerge('flex pt-10 min-w-56 max-h-screen', 'z-10', className)}>
+        <aside className={twMerge('flex max-h-screen', 'z-10', className)}>
             <menu
                 className={twMerge(
                     'flex-1 p-8 flex flex-col gap-1 pt-24 overflow-y-auto',

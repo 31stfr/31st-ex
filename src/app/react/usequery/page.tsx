@@ -11,14 +11,13 @@ const queryClient = new QueryClient();
 const UseQueryPage = () => {
     return (
         <QueryClientProvider client={queryClient}>
-            <div className="flex-1 flex flex-col gap-8">
+            <div className="flex-1 grid grid-rows-[auto_auto_1fr] gap-8 overflow-y-hidden">
                 <H4>
                     <FaReact />
                     Tanstack useQuery
                 </H4>
                 <div>Playing with Tanstack useQuery</div>
-
-                <div className="flex-1 flex flex-col gap-4">
+                <div className="flex-1 flex flex-col gap-4 overflow-y-auto">
                     <H6 className="text-base">Basic useQuery usage</H6>
                     <UseQueryBasic />
                     <H6 className="text-base">Basic useQuery custom hook</H6>

@@ -5,7 +5,7 @@ import { FaReact } from 'react-icons/fa6';
 
 const ReactEfficientContextPage = () => {
     return (
-        <div className="flex-1 flex flex-col gap-8">
+        <div className="flex-1 grid grid-rows-[auto_auto_1fr] gap-8 overflow-y-hidden">
             <H4>
                 <FaReact />
                 Efficient context
@@ -16,7 +16,9 @@ const ReactEfficientContextPage = () => {
                     @fluentui/react-context-selector
                 </Link>
             </div>
-            <EfficientContextExample />
+            <div className="flex flex-col gap-8 overflow-y-auto">
+                <EfficientContextExample />
+            </div>
         </div>
     );
 };

@@ -1,10 +1,12 @@
 'use client';
 
 import { H6 } from '@/components/common/Heading';
+import { PropClassName } from '@/types/typesGlobal';
+import { twMerge } from 'tailwind-merge';
 import BadUserCard from './BadUserCard';
 import UserCard from './UserCard';
 
-const CompoundComponentsExample = () => {
+const CompoundComponentsExample = ({ className }: PropClassName) => {
     const name = 'Blue eyes cat' as const;
 
     const description =
@@ -18,7 +20,7 @@ const CompoundComponentsExample = () => {
     } as const;
 
     return (
-        <div className="grid lg:grid-cols-[1fr_3fr] gap-4">
+        <div className={twMerge('grid lg:grid-cols-[1fr_3fr] gap-4', className)}>
             <div>
                 <H6>Average implementation</H6>
                 <p className="text-neutral-500">
@@ -33,7 +35,7 @@ const CompoundComponentsExample = () => {
                     sub-element is optional, customizable, and can be placed anywhere.
                 </p>
             </div>
-            <div className="p-[2px] pr-2 pb-2 rounded-xl bg-linear-to-br from-orange-300 to-rose-400">
+            <div className="p-0.5 pr-2 pb-2 rounded-xl bg-linear-to-br from-orange-300 to-rose-400">
                 <div className="h-full w-full p-4 rounded-lg bg-white">
                     <BadUserCard
                         name={name}
@@ -45,7 +47,7 @@ const CompoundComponentsExample = () => {
                     />
                 </div>
             </div>
-            <div className="p-[2px] pr-2 pb-2 rounded-xl bg-linear-to-br from-orange-300 to-rose-400">
+            <div className="p-0.5 pr-2 pb-2 rounded-xl bg-linear-to-br from-orange-300 to-rose-400">
                 <div className="h-full w-full grid lg:grid-cols-3 place-items-start gap-4 p-4 rounded-lg bg-white">
                     <UserCard>
                         <UserCard.Image src={image.src} alt={image.alt} />
