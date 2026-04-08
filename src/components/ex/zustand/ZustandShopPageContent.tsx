@@ -34,7 +34,7 @@ const ZustandShopPageContent = ({ products }: ZustandShopPageContentProps) => {
             <div className="h-full grid grid-cols-1 lg:grid-cols-[1fr_5fr] grid-rows-[auto_1fr] gap-4 overflow-y-hidden">
                 <H6 className="order-1">Your Cart</H6>
                 <H6 className="order-3 lg:order-2">Products</H6>
-                <Cart className="order-2 lg:order-3overflow-y-auto" products={products} />
+                <Cart className="order-2 lg:order-3 overflow-y-auto" products={products} />
                 <ProductList
                     className="order-4 lg:order-4 grid-cols-1 lg:grid-cols-5 overflow-y-auto"
                     products={products}
