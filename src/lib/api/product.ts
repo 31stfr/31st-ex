@@ -1,4 +1,4 @@
-'use server';
+import 'server-only';
 
 import { ProductResponse } from '@/types/api/Product';
 

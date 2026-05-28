@@ -1,5 +1,3 @@
-'use server';
-
 import { User } from '@/types/api/User';
 
 export const getUserList = async (): Promise<User[]> => {
@@ -11,7 +9,7 @@ export const getUserList = async (): Promise<User[]> => {
         const data = await response.json();
 
         const dataSorted: User[] = data.sort((a: User, b: User) =>
-            a.username.localeCompare(b.username)
+            a.username.localeCompare(b.username),
         );
 
         return dataSorted;
